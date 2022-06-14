@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "src/cli/index.js",
   "license": "MIT",
+  "author": "ED Team",
   "scripts": {
-    "test": "jest"
+    "test": "jest --runInBand",
+    "start": "node src/cli"
   },
   "devDependencies": {
     "jest": "^28.1.1",
