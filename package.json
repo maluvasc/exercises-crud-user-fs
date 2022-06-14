@@ -1,10 +1,16 @@
 {
   "name": "exercises-crud-user-fs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/cli/index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "jest": "^28.1.1",
     "mock-fs": "^5.1.2"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.4"
   }
 }
