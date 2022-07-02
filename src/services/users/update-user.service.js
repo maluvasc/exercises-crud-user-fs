@@ -1,9 +1,25 @@
+const {loadUsersRepository,updateUserRepository} = require("../../repositories/user-repository");
+
 async function updateUser(id, { name, email, phone }) {
-  /*
-  - TODO 29: Deve retornar uma exceção de erro "User ID is required" caso não tenha passado ID;
-  - TODO 30: Se pelo ID passado não existir um usuário no banco, deve retornar uma exceção com o erro "User not exists";
-  - TODO 31: Deve retornar TRUE se o usuário for atualizado corretamente;   
-*/
+  if (!id) {
+    throw new Error("User ID is required");
+  }
+
+  const users = loadUsersRepository();
+
+  const idCheck = users.map((user) => {
+    if (user.id === id) {
+      return true;
+    }
+    return false;
+  });
+
+  if (!idCheck.includes(true)) {
+    throw new Error("User not exists");
+  }
+
+  updateUserRepository(name, email, phone);
+  return true;
 }
 
 module.exports = { updateUser };

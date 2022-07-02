@@ -1,7 +1,13 @@
-async function loadAllUsers() {
-  /*
-  - TODO 27: Deve retornar a lista (com itens ou vazia) de usuários válidos;
-*/
+const {loadUsersRepository} = require("../../repositories/user-repository");
+
+function loadAllUsers() {
+  const users = loadUsersRepository();
+
+  const addStatus = users.map(() => {
+    users.push(users.status = true);
+    return users;
+  });
+  return addStatus;
 }
 
 module.exports = { loadAllUsers };

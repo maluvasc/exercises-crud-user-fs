@@ -1,8 +1,16 @@
-async function findUserById(id) {
-  /*
-  - TODO 25: Deve retornar NULL se o usuário com o email passado nao existir;
-  - TODO 26: Deve retornar um usuário válido se ele existir nno banco; 
-*/
-}
+const {loadUsersRepository} = require("../../repositories/user-repository");
 
+async function findUserById(id) {
+  const users = loadUsersRepository();
+
+  const idCheck = users.find((user) => {
+    if (user.id === id) {
+      return user;
+    }
+  });
+  if (!idCheck) {
+    return null;
+  }
+  return idCheck;
+}
 module.exports = { findUserById };
